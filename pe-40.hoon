@@ -18,9 +18,10 @@
       n-digits
     (sub (pow 10 n-digits) (pow 10 (dec n-digits)))
   ?:  (lte i index-max)
-    =/  number=@  %+  add
-                    (pow 10 (dec n-digits))
-                  (div (dec i) n-digits)
+    =/  number=@
+      %+  add
+        (pow 10 (dec n-digits))
+      (div (dec i) n-digits)
     %+  ith-digit
       number
     (mod (dec i) n-digits)
