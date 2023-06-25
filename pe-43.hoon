@@ -1,4 +1,4 @@
-::  Ugly solution, takes 7 minutes to compute
+::  Ugly solution, takes 5-7 minutes to compute
 ::
 |^
 ~>  %bout
