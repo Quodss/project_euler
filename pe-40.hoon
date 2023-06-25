@@ -13,9 +13,10 @@
   ^-  @
   =/  n-digits=@  1
   |-  ^-  @
-  =/  index-max=@  %+  mul
-                     n-digits
-                   (sub (pow 10 n-digits) (pow 10 (dec n-digits)))
+  =/  index-max=@
+    %+  mul
+      n-digits
+    (sub (pow 10 n-digits) (pow 10 (dec n-digits)))
   ?:  (lte i index-max)
     =/  number=@  %+  add
                     (pow 10 (dec n-digits))
