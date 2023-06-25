@@ -1,4 +1,3 @@
-|^
 ::  There are no 8 or 9-digit pandigital primes as those are all divisible by 3
 ::  Check all n = 6*k+-1, starting from the biggest
 ::
