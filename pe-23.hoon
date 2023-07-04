@@ -1,3 +1,5 @@
+::  takes a very long time
+::
 =<
 ::  main part
 =/  abundant-list=(list @)
