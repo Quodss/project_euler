@@ -16,8 +16,8 @@
 ?~  (find [numerator]~ numerators)
   %=  $
     numerator         (mul (mod numerator d) 10)
-	decimal-fraction  (snoc decimal-fraction next-digit)
-	numerators        (snoc numerators numerator)
+    decimal-fraction  (snoc decimal-fraction next-digit)
+    numerators        (snoc numerators numerator)
   ==
 =?  d-out  (gth (sub (lent decimal-fraction) (need (find [numerator]~ numerators))) length-cycle)  d
 =.  length-cycle  (max length-cycle (sub (lent decimal-fraction) (need (find [numerator]~ numerators))))
