@@ -33,7 +33,7 @@ is-triangle
   (add acc (sub char 96))
 ::
 ::  ++is-trangle: n is triangle <=> 2n=k^2 + k for some integer k
-::  i.e. isqrt(n) is equal to remainder of isqrt(n)
+::  i.e. isqrt(2n) is equal to remainder of isqrt(2n)
 ::
 ++  is-triangle
   |=  n=@
