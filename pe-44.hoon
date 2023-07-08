@@ -8,7 +8,7 @@
 ::  (pentagon-m - pentagon-{m-1})
 ::
 =/  difference-min=@  (sub (mul 3 m) 2)
-::  initialise D with very big number
+::  initialise D with a very big number
 ::
 =/  d=@  (pow 2 32)
 ::  iterate for m from 2 to inf, for n from m-1 to 1 or until P_m - P_n > d
