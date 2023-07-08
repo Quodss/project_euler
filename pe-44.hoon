@@ -1,12 +1,18 @@
 |^
 =/  m=@  2
 =/  n=@  1
-=/  pentagon-m=@  (pentagon m)
-=/  pentagon-n=@  (pentagon n)
+=/  pentagon-m=@  5
+=/  pentagon-n=@  1
+::  smallest possible difference between pentagon numbers P_m - P_n for
+::  a given m. Will be used in termination condition
+::  (pentagon-m - pentagon-{m-1})
+::
 =/  difference-min=@  (sub (mul 3 m) 2)
 ::  initialise D with very big number
 ::
 =/  d=@  (pow 2 32)
+::  iterate for m from 2 to inf, for n from m-1 to 1 or until P_m - P_n > d
+::
 |-  ^-  @
 ?:  (lte d difference-min)
   d
@@ -26,15 +32,6 @@
   n  (dec n)
   pentagon-n  (sub pentagon-n (sub (mul 3 n) 2))
 ==
-::
-++  pentagon
-  |=  n=@
-  ^-  @
-  %+  div
-    %+  mul
-      n
-    (dec (mul 3 n))
-  2
 ::
 ++  is-pentagon
   |=  x=@
