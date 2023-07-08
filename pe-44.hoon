@@ -1,32 +1,31 @@
-::  works in theory, but throws dig: meme
 |^
 =/  m=@  2
 =/  n=@  1
-=|  pentagon-m=@
-=|  pentagon-n=@
-=|  candidate-sub=@
-=|  difference-min=@
+=/  pentagon-m=@  (pentagon m)
+=/  pentagon-n=@  (pentagon n)
+=/  difference-min=@  (sub (mul 3 m) 2)
 ::  initialise D with very big number
 ::
 =/  d=@  (pow 2 32)
 |-  ^-  @
-~?  &(=(n 1) =(0 (mod m 1.000)))  m
-?:  =(n m)
-  $(m +(m), n 1)
-=.  difference-min  (sub (mul 3 m) 2)
 ?:  (lte d difference-min)
   d
-=.  pentagon-m  (pentagon m)
-=.  pentagon-n  (pentagon n)
-=.  candidate-sub  (sub pentagon-m pentagon-n)
-?:  (gte candidate-sub d)
-  $(n +(n))
-=?  d  ?&  (is-pentagon candidate-sub)
+?:  |(=(n 0) (gte (sub pentagon-m pentagon-n) d))
+  %=  $
+    m  +(m)
+    n  m
+    pentagon-m  (add pentagon-m +((mul 3 m)))
+    pentagon-n  pentagon-m
+    difference-min  (sub (mul 3 +(m)) 2)
+  ==
+=?  d  ?&  (is-pentagon (sub pentagon-m pentagon-n))
            (is-pentagon (add pentagon-n pentagon-m))
        ==
-  ~&  [pentagon-m pentagon-n]
-  candidate-sub
-$(n +(n))
+  (sub pentagon-m pentagon-n)
+%=  $
+  n  (dec n)
+  pentagon-n  (sub pentagon-n (sub (mul 3 n) 2))
+==
 ::
 ++  pentagon
   |=  n=@
