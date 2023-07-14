@@ -1,5 +1,5 @@
 |^
-=/  n-limit=@  10.000
+=/  n-limit=@  1.000
 =/  sieve=@ub  (erastothenes-sieve n-limit)
 =/  odd-composite=@  9
 ::  (number to square and double)
