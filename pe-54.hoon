@@ -1,5 +1,6 @@
 ::  draft
 ::
+/*  games-txt  %txt  /poker/txt
 |^
 =/  games-hands=(list [hand hand])
   %+  turn
