@@ -64,10 +64,11 @@ j-loop(j +(j))
   |*  [i=@ a=(list)]
   ^+  a
   =/  out=_a  ~
+  =.  a  (flop a)
   =/  length-a=@  (lent a)
   |-  ^+  a
   ?:  =(length-a 0)
-    (flop out)
+    out
   %=  $
     out  [(snag (mod i length-a) a) out]
     i  (div i length-a)
