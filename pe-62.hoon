@@ -61,11 +61,11 @@ j-loop(j +(j))
   $(out (add (mul out 10) i.digits), digits t.digits)
 ::
 ++  get-permutation
-  |=  [i=@ a=(list @ud)]
-  ^-  (list @ud)
-  =|  out=(list @ud)
+  |*  [i=@ a=(list)]
+  ^+  a
+  =/  out=_a  ~
   =/  length-a=@  (lent a)
-  |-  ^-  (list @ud)
+  |-  ^+  a
   ?:  =(length-a 0)
     (flop out)
   %=  $
