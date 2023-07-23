@@ -60,22 +60,6 @@ j-loop(j +(j))
   ?~  digits  out
   $(out (add (mul out 10) i.digits), digits t.digits)
 ::
-++  get-permutation
-  |*  [i=@ a=(list)]
-  ^+  a
-  =/  out=_a  ~
-  =.  a  (flop a)
-  =/  length-a=@  (lent a)
-  |-  ^+  a
-  ?:  =(length-a 0)
-    out
-  %=  $
-    out  [(snag (mod i length-a) a) out]
-    i  (div i length-a)
-    length-a  (dec length-a)
-    a  (oust [(mod i length-a) 1] a)
-  ==
-::
 ++  factorial
   |=  n=@
   ^-  @
