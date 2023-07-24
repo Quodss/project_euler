@@ -8,31 +8,28 @@
 =/  triangle=(list (list @))
   (turn triangle-txt split-ud-cord-spaces)
 ::
-=;  max-sums=(list @)
-  (roll max-sums max)
+=;  max-sums-last=(list @)
+  (roll max-sums-last max)
+?~  triangle  !!
+=/  max-sums=(list @)  i.triangle
+=/  rest-of-triangle=(list (list @))  t.triangle
 |-  ^-  (list @)
-?:  =(1 (lent triangle))
-  (rear triangle)
-=/  last-row=(list @)  (rear triangle)
-=/  length-last-row-minus-1=@  (dec (lent last-row))
-=/  max-sums-above=(list @)  $(triangle (snip triangle))
-=/  out=(list @)  ~[(add (snag 0 max-sums-above) (snag 0 last-row))]
-=/  index=@  1
-|-  ^-  (list @)
-?:  =(index length-last-row-minus-1)
-  (snoc out (add (rear max-sums-above) (rear last-row)))
-%=  $
-  index  +(index)
-  out  %+  snoc
-         out
-       ::  (last-row_i + max(max-sums-above_i, max-sums-above_{i-1}))
-       ::
-       %+  add
-         (snag index last-row)
-       %+  max
-         (snag index max-sums-above)
-       (snag (dec index) max-sums-above)
-==
+?~  rest-of-triangle
+  max-sums
+=/  length-max-sums=@  (lent max-sums)
+=.  max-sums
+  =/  out=(list @)  ~[(add (snag 0 max-sums) (snag 0 i.rest-of-triangle))]
+  =/  index=@  1
+  |-  ^-  (list @)
+  ?:  =(index length-max-sums)
+    (snoc out (add (rear max-sums) (rear i.rest-of-triangle)))
+  =/  max-sum=@  %+  add
+                   (snag index i.rest-of-triangle)
+                 %+  max
+                   (snag index max-sums)
+                 (snag (dec index) max-sums)
+  $(out (snoc out max-sum), index +(index))
+$(rest-of-triangle t.rest-of-triangle)
 ::
 ++  split-ud-cord-spaces
   |=  =cord
