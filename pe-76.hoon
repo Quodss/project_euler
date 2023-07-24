@@ -13,6 +13,4 @@
 |=  [biggest-summand=@ acc=@]
 %+  add
   acc
-%+  this-gate
-  (sub n biggest-summand)
-(min biggest-summand max-i)
+(this-gate (sub n biggest-summand) (min biggest-summand max-i))
